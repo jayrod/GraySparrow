@@ -134,3 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Override production variables if DJANGO_DEVELOPMENT env variable is set
+if os.environ.get('DJANGO_DEVELOPMENT'):
+    from settings_dev import *  # or specific overrides
